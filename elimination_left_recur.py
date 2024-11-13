@@ -98,6 +98,13 @@ class Grammar:
             rhs = ' | '.join(prod_dict[lhs])
             print(f"{lhs} -> {rhs}")
 
+def convert_grammar_format(productions):
+    """转换文法格式，用于其他模块调用"""
+    grammar = Grammar()
+    for lhs, rhs_list in productions.items():
+        grammar.add_production(lhs, rhs_list)
+    return grammar
+
 def main():
     grammar = Grammar()
     lines = []
